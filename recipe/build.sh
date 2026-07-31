@@ -51,7 +51,7 @@ if [[ "${cuda_compiler_version:-None}" != "None" ]]; then
     if [[ ${cuda_compiler_version} == 12* ]]; then
         export HERMETIC_CUDA_COMPUTE_CAPABILITIES=sm_60,sm_70,sm_75,sm_80,sm_86,sm_89,sm_90,sm_100,sm_120,compute_120
     else
-        export HERMETIC_CUDA_COMPUTE_CAPABILITIES=sm_75,sm_80,sm_86,sm_89,sm_90,sm_100,sm_110,sm_120,compute_120
+        export HERMETIC_CUDA_COMPUTE_CAPABILITIES=sm_110,sm_87
     fi
     if [[ "${host_platform}" == "linux-64" ]]; then
         export CUDA_ARCH="x86_64-linux"
@@ -228,7 +228,7 @@ ${PYTHON} build/build.py build \
 
 # Clean up to speedup postprocessing
 pushd build
-bazel clean --expunge
+#bazel clean --expunge
 popd
 
 pushd $SP_DIR

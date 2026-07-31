@@ -46,11 +46,6 @@ requirements:
         - cross-python_${{ host_platform }}
         - numpy
         - zlib
-    - if: unix
-      then:
-        # Conda clang config files inject "<CFGDIR>/../include" (BUILD_PREFIX/include),
-        # which causes Bazel absolute include checks to report build_env paths.
-        - clang-no-conda-cfg
     - unzip
     # Keep bazel listed twice here to help the migrators track dependencies
     - bazel
